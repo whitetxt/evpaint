@@ -1,7 +1,7 @@
-filename = paint
+filename = build/paint
 
 CC = gcc
-CFLAGS = -g `pkg-config --cflags --libs sdl2` -lSDL2_image -lSDL2_ttf -lcomdlg32 -lole32 -mconsole
+CFLAGS = -g `pkg-config --cflags --libs sdl2` -lSDL2_image -lSDL2_ttf -lm
 
 files = ${wildcard *.c}
 objFiles = ${files:.c=.o}
@@ -13,3 +13,6 @@ all:
 clean:
 	-rm -rf ${filename}
 	-rm -rf ${objFiles}
+
+run:
+	${filename}
